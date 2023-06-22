@@ -22,13 +22,13 @@ class NoteCard extends StatelessWidget {
               "Flutter Tips",
               style: TextStyle(fontSize: 26, color: Colors.black),
             ),
-            subtitle: const Padding(
-              padding: EdgeInsets.only(
+            subtitle: Padding(
+              padding: const EdgeInsets.only(
                 top: 16,
               ),
               child: Text(
-                "Building Flutter tips Card here",
-                style: TextStyle(color: Colors.black),
+                "Building Flutter tips Card here Hello world to the next line",
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
             ),
             trailing: IconButton(
@@ -39,14 +39,14 @@ class NoteCard extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 16,
               right: 24,
             ),
             child: Text(
               "June 21-2023",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black.withOpacity(0.5)),
             ),
           )
         ],
