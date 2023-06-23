@@ -16,13 +16,14 @@ class AddNoteBottomSheet extends StatelessWidget {
             const CustomTextField(hint: "Add Note Title"),
             const SizedBox(height: 16),
             const CustomTextField(hint: "Add your note here....", maxLine: 5),
-            const SizedBox(height: 16),
+            const SizedBox(height: 52),
             CustomButton(
-                buttonWidth: MediaQuery.of(context).size.width,
-                buttonHeight: 44,
-                backgroundColor: Colors.yellow.shade200,
-                buttonText: "Add Your Note",
-                textColor: Colors.black)
+              buttonWidth: MediaQuery.of(context).size.width,
+              buttonHeight: 44,
+              backgroundColor: Colors.yellow.shade200,
+              buttonText: "Add Your Note",
+              textColor: Colors.black,
+            )
           ],
         ),
       ),
