@@ -17,16 +17,23 @@ class EditViewBody extends StatelessWidget {
             hint: "Note Title",
             validator: (value) {
               if (value?.isEmpty ?? true) {
-                return "sorry :( this field is required";
+                return "Sorry this field is required";
               } else {
                 return null;
               }
             },
           ),
           const SizedBox(height: 16),
-          const CustomTextField(
+          CustomTextField(
             hint: "Your Note Contant",
             maxLine: 5,
+            validator: (value) {
+              if (value?.isEmpty ?? true) {
+                return "Sorry this field is required";
+              } else {
+                return null;
+              }
+            },
           ),
         ],
       ),

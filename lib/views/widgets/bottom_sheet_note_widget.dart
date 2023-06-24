@@ -44,7 +44,7 @@ class _BottomSheetFormState extends State<BottomSheetForm> {
             hint: "Add Note Title",
             validator: (value) {
               if (value?.isEmpty ?? true) {
-                return "sorry this field is required please add a note title";
+                return "Sorry this field is required please add a note title";
               } else {
                 return null;
               }
@@ -56,7 +56,7 @@ class _BottomSheetFormState extends State<BottomSheetForm> {
             maxLine: 5,
             validator: (value) {
               if (value?.isEmpty ?? true) {
-                return "sorry this field is required please add your note";
+                return "Sorry this field is required please add your note";
               } else {
                 return null;
               }
