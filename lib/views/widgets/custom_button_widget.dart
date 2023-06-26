@@ -10,6 +10,8 @@ class CustomButton extends StatelessWidget {
     required this.buttonText,
     required this.textColor,
     required this.buttonOnPress,
+    this.isLoading = false,
+    required this.indicatorColor,
   });
 
   final double borderRadius;
@@ -19,6 +21,8 @@ class CustomButton extends StatelessWidget {
   final String buttonText;
   final Color textColor;
   final void Function()? buttonOnPress;
+  final bool isLoading;
+  final Color indicatorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +34,18 @@ class CustomButton extends StatelessWidget {
           backgroundColor: backgroundColor,
           minimumSize: Size(
               buttonWidth ?? MediaQuery.of(context).size.width, buttonHeight)),
-      child: Text(
-        buttonText,
-        style: TextStyle(color: textColor),
-      ),
+      child: isLoading
+          ? SizedBox(
+              height: 24,
+              width: 24,
+              child: CircularProgressIndicator(
+                color: indicatorColor,
+              ),
+            )
+          : Text(
+              buttonText,
+              style: TextStyle(color: textColor),
+            ),
     );
   }
 }

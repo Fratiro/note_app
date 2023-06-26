@@ -56,29 +56,35 @@ class _BottomSheetFormState extends State<BottomSheetForm> {
             },
           ),
           const SizedBox(height: 52),
-          CustomButton(
-            buttonOnPress: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                indicatorColor: Colors.white,
+                isLoading: state is AddNoteLoading ? true : false,
+                buttonOnPress: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
 
-                var noteModel = NoteModel(
-                  noteTitle: noteTitle!,
-                  noteDescription: noteDesription!,
-                  dateTime: DateTime.now().toString(),
-                  colors: Colors.yellow.shade200.value,
-                );
+                    var noteModel = NoteModel(
+                      noteTitle: noteTitle!,
+                      noteDescription: noteDesription!,
+                      dateTime: DateTime.now().toString(),
+                      colors: Colors.yellow.shade200.value,
+                    );
 
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                buttonWidth: MediaQuery.of(context).size.width,
+                buttonHeight: 44,
+                backgroundColor: Colors.yellow.shade200,
+                buttonText: "Add Your Note",
+                textColor: Colors.black,
+              );
             },
-            buttonWidth: MediaQuery.of(context).size.width,
-            buttonHeight: 44,
-            backgroundColor: Colors.yellow.shade200,
-            buttonText: "Add Your Note",
-            textColor: Colors.black,
           )
         ],
       ),
